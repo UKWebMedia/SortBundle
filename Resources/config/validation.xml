@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="Cannibal\Bundle\SortBundle\Sort\Sort">
+        <property name="name">
+            <constraint name="NotBlank"/>
+            <constraint name="MinLength">1</constraint>
+            <constraint name="MaxLength">128</constraint>
+            <constraint name="Regex">
+                <option name="pattern">/^[ a-z\-]+$/</option>
+            </constraint>
+        </property>
+
+        <property name="direction">
+            <constraint name="NotBlank"/>
+            <constraint name="Choice">
+                <option name="choices">
+                    <value>asc</value>
+                    <value>desc</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="Cannibal\Bundle\SortBundle\Sort\SortCollection">
+        <property name="sorts">
+            <constraint name="Valid"/>
+        </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>containsExpectedSorts</value>
+            </option>
+        </constraint>
+    </class>
+
+</constraint-mapping>
