@@ -33,6 +33,7 @@ class SortFetcherTest extends PHPUnit_Framework_TestCase
                 array(
                     'sortName,desc',
                     'sortName2,asc',
+                    'nodirection',
                 ),
                 array(
                     'sorts'=>array(
@@ -45,7 +46,13 @@ class SortFetcherTest extends PHPUnit_Framework_TestCase
                             'name'=>'sortName2',
                             'direction'=>'asc',
                             'priority'=>1
+                        ),
+                        array(
+                            'name'=>'nodirection',
+                            'direction'=>'asc',
+                            'priority'=>2
                         )
+
                     )
                 )
             )

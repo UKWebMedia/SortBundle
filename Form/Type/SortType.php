@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType,
     Symfony\Component\Form\FormBuilderInterface,
     Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Cannibal\Bundle\SortBundle\Sort\SortInterface;
+
 /**
  * Description of SortType
  */
@@ -13,7 +15,7 @@ class SortType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('direction', 'text')
+        $builder->add('direction', 'text', array('empty_data'=>SortInterface::DIRECTION_ASC))
                 ->add('priority', 'integer')
                 ->add('name', 'text');
     }

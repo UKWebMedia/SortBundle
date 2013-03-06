@@ -15,7 +15,7 @@ class Sort implements SortInterface
     public function __construct()
     {
         $this->name = null;
-        $this->direction = SortInterface::DIRECTION_DESC;
+        $this->direction = SortInterface::DIRECTION_ASC;
         $this->priority = 0;
     }
 
