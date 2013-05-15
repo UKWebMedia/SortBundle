@@ -90,7 +90,7 @@ class SortCollection implements SortCollectionInterface
         foreach($sorts as $sort){
             /** @var SortInterface $sort */
             if(!in_array($sort->getName(), $expectedSorts)){
-                $context->addViolationAtPath('sorts', sprintf('Sort %s is not expected', $sort->getName()));
+                $context->addViolationAt('sorts', sprintf('Sort %s is not expected', $sort->getName()));
             }
         }
     }
