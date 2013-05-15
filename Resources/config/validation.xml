@@ -6,8 +6,12 @@
     <class name="Cannibal\Bundle\SortBundle\Sort\Sort">
         <property name="name">
             <constraint name="NotBlank"/>
-            <constraint name="MinLength">1</constraint>
-            <constraint name="MaxLength">128</constraint>
+            <constraint name="Length">
+                <option name="min">1</option>
+                <option name="max">128</option>
+                <option name="minMessage">The sort name must be at least {{ limit }} characters length</option>
+                <option name="maxMessage">The sort name cannot be longer than than {{ limit }} characters length</option>
+            </constraint>
             <constraint name="Regex">
                 <option name="pattern">/^[ a-z\-]+$/</option>
             </constraint>
